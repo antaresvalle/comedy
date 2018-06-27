@@ -59,52 +59,53 @@
             <div class="tab-pane fade show active" id="gif" role="tabpanel" aria-labelledby="gif-tab">
                 <button type="button" class="btn btn-light card btn-lg col-10 offset-1 mt-2" data-toggle="modal" data-target="#publish-modal">Make me laught...</button>
             </div>
+
+            <!-- Card-Newsfeed-->
+    <section id="post" class="row container-fluid">
+            <div class="row containerNewsfeed">
+                <div class="row container-fluid">
+                    <!-- Imagen nombre de usuario-->
+                    <div id="user-photo" class="col col-sm-3 offset-sm-1 justify-content-sm-center">
+                        <img class="img-fluid img-thumbnail rounded-circle" src="./assets/images/Usuario.jpg" alt="Responsive image" style="width: 4rem;">
+                    </div>
+                    <div id="user-name" class="col col-sm-8">
+                        <h5>Name</h5>
+                    </div>
+                </div>
+                <div class="row container-fluid">
+                    <!-- GIF y descripcion-->
+                    <div class="card col col-sm-11 offset-sm-1" style="width: 18rem;">
+                        <img class="card-img-top" src="..." alt="Card image cap">
+                        <div class="card-body">
+                            <p class="card-text">Descripcion de Gif.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row container-fluid">
+                    <!-- Iconos y boton-->
+                    <div class="col col-sm-5 offset-sm-1">
+                        <a href="">
+                            <img  src="assets/images/pac-man.png" alt="">
+                        </a>
+                        <a href="">
+                            <img  src="assets/images/ghost.png" alt="">
+                        </a>
+                    </div>
+                    <div class="col col-sm-6">
+                        <button type="button" class="btn btn-secondary col col-sm-3 offset-sm-9">Share
+                            <i class="fab fa-facebook-f"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
             <div class="tab-pane fade" id="images" role="tabpanel" aria-labelledby="images-tab">Images...</div>
             <div class="tab-pane fade" id="videos" role="tabpanel" aria-labelledby="videos-tab">Videos...</div>
         </div>
 
     </navbar>
-    <!-- Card-Newsfeed-->
-    <section id="post" class="row container-fluid">
-        <div class="row containerNewsfeed">
-            <div class="row container-fluid">
-                <!-- Imagen nombre de usuario-->
-                <div id="user-photo" class="col col-sm-3 offset-sm-1 justify-content-sm-center">
-                    <img class="img-fluid img-thumbnail rounded-circle" src="./assets/images/Usuario.jpg" alt="Responsive image" style="width: 4rem;">
-                </div>
-                <div id="user-name" class="col col-sm-8">
-                    <h5>Name</h5>
-                </div>
-            </div>
-            <div class="row container-fluid">
-                <!-- GIF y descripcion-->
-                <div class="card col col-sm-11 offset-sm-1" style="width: 18rem;">
-                    <img class="card-img-top" src="..." alt="Card image cap">
-                    <div class="card-body">
-                        <p class="card-text">Descripcion de Gif.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="row container-fluid">
-                <!-- Iconos y boton-->
-                <div class="col col-sm-5 offset-sm-1">
-                    <a href="">
-                        <img  src="assets/images/pac-man.png" alt="">
-                    </a>
-                    <a href="">
-                        <img  src="assets/images/ghost.png" alt="">
-                    </a>
-                </div>
-                <div class="col col-sm-6">
-                    <button type="button" class="btn btn-secondary col col-sm-3 offset-sm-9">Share
-                        <i class="fab fa-facebook-f"></i>
-                    </button>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
+    
     <!-- MODALES -->
     <!-- gif publish modal -->
     <div class="modal" tabindex="-1" role="dialog" id="publish-modal">
