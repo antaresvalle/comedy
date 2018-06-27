@@ -23,46 +23,60 @@
     <navbar>
         <ul class="nav nav-tabs" id="tabFormats" role="tablist">
             <li class="nav-item">
-              <a class="nav-link active" id="gif-tab" data-toggle="tab" href="#gif" role="tab" aria-controls="gif" aria-selected="true">Gif</a>
+                <a class="nav-link active" id="gif-tab" data-toggle="tab" href="#gif" role="tab" aria-controls="gif" aria-selected="true">Gif</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" id="images-tab" data-toggle="tab" href="#images" role="tab" aria-controls="images" aria-selected="false">Images</a>
+                <a class="nav-link" id="images-tab" data-toggle="tab" href="#images" role="tab" aria-controls="images" aria-selected="false">Images</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" id="videos-tab" data-toggle="tab" href="#videos" role="tab" aria-controls="videos" aria-selected="false">Videos</a>
+                <a class="nav-link" id="videos-tab" data-toggle="tab" href="#videos" role="tab" aria-controls="videos" aria-selected="false">Videos</a>
             </li>
-          </ul>
-          <div class="tab-content" id="tabContent">
+        </ul>
+        <div class="tab-content" id="tabContent">
             <div class="tab-pane fade show active" id="gif" role="tabpanel" aria-labelledby="gif-tab">Gif...</div>
             <div class="tab-pane fade" id="images" role="tabpanel" aria-labelledby="images-tab">Images...</div>
             <div class="tab-pane fade" id="videos" role="tabpanel" aria-labelledby="videos-tab">Videos...</div>
-          </div>
+        </div>
 
     </navbar>
     <!-- Card-Newsfeed-->
-    <section id="post" class="container-fluid">  
-        <div id="user-photo" class="row justify-content-md-center">
-            <img src="./assets/images/Usuario.jpg" alt="" class="col .col-sm-1">IMG</a>
-            <p id="user-name" class="col .col-sm-11">Name</p>
-        </div>
-        <div class="row container-fluid">
-            <div class="">
-                <div class="">
-                    <div class="">
-                        <h3>Nombre completo</h3>
-                        <span>3310723199</span>
-                        <a class="">
-                            <i class="material-icons center">delete</i>
-                        </a>
+    <section id="post" class="row container-fluid">
+        <div class="row containerNewsfeed">
+            <div class="row container-fluid">
+                <!-- Imagen nombre de usuario-->
+                <div id="user-photo" class="col col-sm-3 offset-sm-1 justify-content-sm-center">
+                    <img class="img-fluid img-thumbnail rounded-circle" src="./assets/images/Usuario.jpg" alt="Responsive image" style="width: 4rem;">
+                </div>
+                <div id="user-name" class="col col-sm-8">
+                    <h5>Name</h5>
+                </div>
+            </div>
+            <div class="row container-fluid">
+                <!-- GIF y descripcion-->
+                <div class="card col col-sm-11 offset-sm-1" style="width: 18rem;">
+                    <img class="card-img-top" src="..." alt="Card image cap">
+                    <div class="card-body">
+                        <p class="card-text">Descripcion de Gif.</p>
                     </div>
                 </div>
             </div>
-        </div> 
-        <div class="row">
-
+            <div class="row container-fluid">
+                <!-- Iconos y boton-->
+                <div class="col col-sm-5 offset-sm-1">
+                    <a href="">
+                        <img  src="assets/images/pac-man.png" alt="">
+                    </a>
+                    <a href="">
+                        <img  src="assets/images/ghost.png" alt="">
+                    </a>
+                </div>
+                <div class="col col-sm-6">
+                    <button type="button" class="btn btn-secondary col col-sm-3 offset-sm-9">Share
+                        <i class="fab fa-facebook-f"></i>
+                    </button>
+                </div>
+            </div>
         </div>
-        <div class="row"></div>
-        <div class="row"></div>
     </section>
 
 
