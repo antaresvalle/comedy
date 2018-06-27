@@ -8,4 +8,11 @@
     messagingSenderId: "710197328215"
   };
   firebase.initializeApp(config);
+  
+  $(document).ready(function (){
 
+  
+  $('#myModal').on('shown.bs.modal', function () {
+    $('#myInput').trigger('focus')
+  })
+});
