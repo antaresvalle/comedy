@@ -21,19 +21,23 @@
 
     </header>
     <navbar>
+        <ul class="nav nav-tabs" id="tabFormats" role="tablist">
+            <li class="nav-item">
+              <a class="nav-link active" id="gif-tab" data-toggle="tab" href="#gif" role="tab" aria-controls="gif" aria-selected="true">Gif</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" id="images-tab" data-toggle="tab" href="#images" role="tab" aria-controls="images" aria-selected="false">Images</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" id="videos-tab" data-toggle="tab" href="#videos" role="tab" aria-controls="videos" aria-selected="false">Videos</a>
+            </li>
+          </ul>
+          <div class="tab-content" id="tabContent">
+            <div class="tab-pane fade show active" id="gif" role="tabpanel" aria-labelledby="gif-tab">Gif...</div>
+            <div class="tab-pane fade" id="images" role="tabpanel" aria-labelledby="images-tab">Images...</div>
+            <div class="tab-pane fade" id="videos" role="tabpanel" aria-labelledby="videos-tab">Videos...</div>
+          </div>
 
-
-        <main>
-            <section id="gif">
-
-            </section>
-            <section id="images">
-
-            </section>
-            <section id="videos">
-
-            </section>
-        </main>
     </navbar>
     <!-- Card-Newsfeed-->
     <section id="post" class="container-fluid">  
