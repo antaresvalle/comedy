@@ -42,7 +42,11 @@ document.getElementById('logout').addEventListener('click', function(){
 
 firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
+
+        console.log(user);
         document.getElementById('user-menu').style.display='block';
+       
+        // no tocar
         var email = user.email;
         var name = user.displayName;
         var img = user.photoURL;
@@ -59,7 +63,9 @@ firebase.auth().onAuthStateChanged(function(user) {
         $("#photo-profile").attr("src", img);
         $("#name-profile").append(name);
         $("#email-profile").append(email);
-    
+        // no tocar
+
+
     } else{
         console.log('no existe usuario');
         document.getElementById('user-menu').style.display='none';

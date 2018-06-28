@@ -1,5 +1,18 @@
 var apikey = 'DapbcEr1KiQr2PsHsAR6NSrxYdHiRH3m';
 
+var provider = new firebase.auth.GoogleAuthProvider();
+
+var config = {
+  apiKey: "AIzaSyDFuzbP725qXoImrSmo6nov90OiPBtHnmw",
+  authDomain: "comedy-app.firebaseapp.com",
+  databaseURL: "https://comedy-app.firebaseio.com",
+  projectId: "comedy-app",
+  storageBucket: "comedy-app.appspot.com",
+  messagingSenderId: "710197328215"
+};
+firebase.initializeApp(config);
+
+
 
 // API facebook
 window.fbAsyncInit = function() {
@@ -67,6 +80,10 @@ $(document).ready(function () {
   });
 
 
+  var databaseService = firebase.database();
+  var referencia = databaseService.ref('testRef');
+  console.log(databaseService);
+
   function addPost() {
     var description = $("#publish-testarea").val();
     var firstgif = $('#imagen-gif').attr("src");
@@ -77,9 +94,15 @@ $(document).ready(function () {
     finalTemplate = templateCard.replace("__image-post__", firstgif)
       .replace("__description__", description).replace("__name-profile__", namePuPerfil).replace("__image-profile__", photoPuPerfil);
 
+      referencia.set({
+        campoTest: 'valor del test',
+        ahora: new Date().getTime()
+      });
+
+
+
 
     $('#publish-card-cont-post').append(finalTemplate);
-    // $("#cont-publish-card").css("display","block");
 
     $("#share").click(shareOnFacebook);
 
@@ -126,7 +149,7 @@ function shareOnFacebook() {
 // post's variables
 
 var templateCard = '<div class="card containerNewsfeed" id="cont-publish-card">'+
-'<div class="row container-fluid">'+
+'<div class="row container">'+
 '<div class="col col-3 offset-1 justify-content-sm-center">'+
 '<img  class="img-fluid img-thumbnail rounded-circle" src="__image-profile__" alt="Responsive image" style="width: 4rem;">'+
 ' </div>'+
@@ -137,10 +160,8 @@ var templateCard = '<div class="card containerNewsfeed" id="cont-publish-card">'
 '<div class="container-fluid">'+
 '<div class="card" >'+
 '<img class="card-img-top" src="__image-post__" alt="Card image cap">'+
-'<div class="card-body">'+
-'<p class="card-text">__description__</p>'+
 '</div>'+
-'</div>'+
+'<p class="card-text font-weight-bold">__description__</p>'+
 '</div>'+
 '<div class="row container-fluid">'+
 '<div class="col col-sm-5 offset-1">'+
@@ -156,17 +177,6 @@ var templateCard = '<div class="card containerNewsfeed" id="cont-publish-card">'
 
 
 // FRANCIA ma
-var provider = new firebase.auth.GoogleAuthProvider();
-
-var config = {
-  apiKey: "AIzaSyDFuzbP725qXoImrSmo6nov90OiPBtHnmw",
-  authDomain: "comedy-app.firebaseapp.com",
-  databaseURL: "https://comedy-app.firebaseio.com",
-  projectId: "comedy-app",
-  storageBucket: "comedy-app.appspot.com",
-  messagingSenderId: "710197328215"
-};
-firebase.initializeApp(config);
 
 
 
