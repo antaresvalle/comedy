@@ -11,27 +11,29 @@ var config = {
 firebase.initializeApp(config);
 
 
-var email;
-var name;
-var img;
 
 // Se obtiene la data del usuario al aceptar
 $('#login').click(function () {
     firebase.auth()
         .signInWithPopup(provider)
         .then(function (result) {
-            email = result.user.email;
-            name = result.user.displayName;
-            img = result.user.photoURL;
+           
 
-            $('#exampleModal').modal("hide");
-            $('#exampleModal').attr("style", "display: none");
 
-            console.log(email, name, img);
-            
 
         })
 });
+
+
+
+
+
+
+
+
+
+
+
 
 document.getElementById('logout').addEventListener('click', function(){
     console.log('click');
@@ -41,7 +43,23 @@ document.getElementById('logout').addEventListener('click', function(){
 firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
         document.getElementById('user-menu').style.display='block';
-    // User is signed in.
+        var email = user.email;
+        var name = user.displayName;
+        var img = user.photoURL;
+
+        $('#exampleModal').modal("hide");
+        $('#exampleModal').attr("style", "display: none");
+
+        console.log(email, name, img);
+
+
+        $("#user-photo").attr("src", img);
+        $("#user-name").append(name);
+
+        $("#photo-profile").attr("src", img);
+        $("#name-profile").append(name);
+        $("#email-profile").append(email);
+    
     } else{
         console.log('no existe usuario');
         document.getElementById('user-menu').style.display='none';
