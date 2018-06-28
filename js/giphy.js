@@ -125,34 +125,72 @@ function shareOnFacebook() {
 
 // post's variables
 
-var templateCard = '<div class="card containerNewsfeed" id="cont-publish-card">'+
-'<div class="row container-fluid">'+
-'<div class="col col-3 offset-1 justify-content-sm-center">'+
-'<img  class="img-fluid img-thumbnail rounded-circle" src="__image-profile__" alt="Responsive image" style="width: 4rem;">'+
-' </div>'+
-'<div  class="col col-8">'+
-'<h5>__name-profile__</h5>'+
-'</div>'+
-'</div>'+
-'<div class="container-fluid">'+
-'<div class="card" >'+
-'<img class="card-img-top" src="__image-post__" alt="Card image cap">'+
-'<div class="card-body">'+
-'<p class="card-text">__description__</p>'+
-'</div>'+
-'</div>'+
-'</div>'+
-'<div class="row container-fluid">'+
-'<div class="col col-sm-5 offset-1">'+
-'<div id="contador">0</div>'+
-'<span id="like"><i class="far fa-heart"></i></span>'+
-'<span id="dislike"><i class="far fa-frown"></i></span>'+
-'</div>'+
-'<div class="col col-sm-6">'+
-'<button type="button" id="share" class="btn btn-primary offset-6">Share<i class="fab fa-facebook-f"></i></button>'+
-'</div>'+
-'</div>'+
-'</div>';
+// var templateCard = '<div class="card containerNewsfeed" id="cont-publish-card">'+
+// '<div class="row container-fluid">'+
+// '<div class="col col-3 offset-1 justify-content-sm-center">'+
+// '<img  class="img-fluid img-thumbnail rounded-circle" src="__image-profile__" alt="Responsive image" style="width: 4rem;">'+
+// ' </div>'+
+// '<div  class="col col-8">'+
+// '<h5>__name-profile__</h5>'+
+// '</div>'+
+// '</div>'+
+// '<div class="container-fluid">'+
+// '<div class="card" >'+
+// '<img class="card-img-top" src="__image-post__" alt="Card image cap">'+
+// '<div class="card-body">'+
+// '<p class="card-text">__description__</p>'+
+// '</div>'+
+// '</div>'+
+// '</div>'+
+// '<div class="row container-fluid">'+
+// '<div class="col col-sm-5 offset-1">'+
+// '<div id="contador">0</div>'+
+// '<span id="like"><i class="far fa-heart"></i></span>'+
+// '<span id="dislike"><i class="far fa-frown"></i></span>'+
+// '</div>'+
+// '<div class="col col-sm-6">'+
+// '<button type="button" id="share" class="btn btn-primary offset-6">Share<i class="fab fa-facebook-f"></i></button>'+
+// '</div>'+
+// '</div>'+
+// '</div>';
+
+
+
+
+
+
+
+var templateCard = '<div class="card containerNewsfeed" id="cont-publish-card">' +
+  '<div class="row container-fluid">' +
+  '<div class="col col-3 offset-1 justify-content-sm-center">' +
+  '<img  class="img-fluid img-thumbnail rounded-circle" src="__image-profile__" alt="Responsive image" style="width: 4rem;">' +
+  ' </div>' +
+  '<div  class="col col-8">' +
+  '<h5>__name-profile__</h5>' +
+  '</div>' +
+  '</div>' +
+  '<div class="container-fluid">' +
+  '<div class="">' +
+  '<img class="card-img-top" src="__image-post__" class="img-responsive espacio-imagen center-block" style="width: 22rem;>' +
+  '<div class="card-body">' +
+  '<p class="card-text text-justify"">__description__</p>' +
+  '</div>' +
+  '</div>' +
+  '<div class="row container-fluid">' +
+  '<div id="contador" class="row offset-1">Puntos: </div>' +
+  '</div>' +
+  '<div class="row container-fluid">' +
+  '<div class="col col-1 offset-1">' +
+  '<span id="like"><img src="assets/images/pac-man-512x512.png" style="width: 1.2rem;"></span>' +
+  '</div>' +
+  '<div class="col col-1 offset-1">' +
+  '<span id="dislike"><img src="assets/images/ghost1.png" style="width: 1.2rem;"></span>' +
+  '</div>' +
+  '<div class="col col-sm-6">' +
+  '<button type="button" id="share" class="btn btn-primary offset-6">Share<i class="fab fa-facebook-f"></i></button>' +
+  '</div>' +
+  '</div>' +
+  '</div>';
 
 
 // FRANCIA ma
@@ -182,6 +220,7 @@ $('#login').click(function () {
 document.getElementById('logout').addEventListener('click', function () {
   console.log('click');
   firebase.auth().signOut();
+ 
 });
 
 firebase.auth().onAuthStateChanged(function (user) {
@@ -204,13 +243,14 @@ firebase.auth().onAuthStateChanged(function (user) {
     $("#name-profile").append(name);
     $("#email-profile").append(email);
 
+   
+
   } else {
     console.log('no existe usuario');
-    // document.getElementById('user-menu').style.display = 'none';
     $("#user-menu").css('display', 'none');
     document.getElementById('profile').style.display = 'none'
     $('#profile').css('display', 'none!important');
-    // $('#elem').css('height', '50px!important');
+    
   }
 });
 
