@@ -22,24 +22,26 @@
             <a class="navbar-brand" href="#">
                 <img src="assets/images/comedylog.png" width="120" height="50" class="d-inline-block align-top" alt="">
             </a>
-
             <button type="button" class="btn btn-outline-light" id="login">Log-in</button>
             <button id= "user-menu" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
               <i class="fas fa-cog"></i>
             </button>
             <div class="collapse navbar-collapse" id="navbarText">
-              <ul class="navbar-nav mr-auto">
-                <li class="nav-item">
+              <div class="navbar-nav mr-auto">
+                <div class="nav-item" id="profile">
                     <div class="row">
-                        <div class="col col-3"><img id="photo-profile" class="img-fluid img-thumbnail rounded-circle" src="" alt=""></div>
-                        <div class="col col-9"><span id="name-profile"></span></div>
+                        <div class="col col-4 offset-4"><img id="photo-profile" class="img-fluid img-thumbnail rounded-circle" src="" alt=""></div>
                     </div>
-                    <p class="email" id="email-profile"></p>
-                </li>
-                <li class="nav-item">
+                     <div class="col col-7 offset-3  text-light">
+                        <span id="name-profile"></span>
+                        <p class="email  text-light" id="email-profile"></p>
+                    </div>
+                    
+                </div>
+                <div class="nav-item">
                     <button type="button" id="logout" class="btn btn-outline-light">Log-Out</button>
-                </li>
-              </ul>
+                </div>
+              </div>
 
             </div>
         </nav>
@@ -47,13 +49,13 @@
     <navbar>
         <ul class="nav nav-tabs" id="tabFormats" role="tablist">
             <li class="nav-item">
-                <a class="nav-link active" id="gif-tab" data-toggle="tab" href="#gif" role="tab" aria-controls="gif" aria-selected="true">Gif</a>
+                <a class="nav-link active white-text" id="gif-tab" data-toggle="tab" href="#gif" role="tab" aria-controls="gif" aria-selected="true">Gif<i class="fas fa-spinner"></i></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" id="images-tab" data-toggle="tab" href="#images" role="tab" aria-controls="images" aria-selected="false">Images</a>
+                <a class="nav-link white-text" id="images-tab" data-toggle="tab" href="#images" role="tab" aria-controls="images" aria-selected="false">Images<i class="fas fa-image"></i></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" id="videos-tab" data-toggle="tab" href="#videos" role="tab" aria-controls="videos" aria-selected="false">Videos</a>
+                <a class="nav-link white-text" id="videos-tab" data-toggle="tab" href="#videos" role="tab" aria-controls="videos" aria-selected="false">Videos<i class="fas fa-play"></i></a>
             </li>
         </ul>
         <div class="tab-content" id="tabContent">
