@@ -82,26 +82,25 @@ $(document).ready(function () {
 
   var databaseService = firebase.database();
   var referencia = databaseService.ref('CardPost');
+  console.log(databaseService);
 
   function addPost() {
     var description = $("#publish-testarea").val();
     var firstgif = $('#imagen-gif').attr("src");
     var photoPuPerfil = $("#photo-profile").attr('src');
     var namePuPerfil = $("#name-profile").text();
+    console.log(firstgif);
     var finalTemplate = "";
     finalTemplate = templateCard.replace("__image-post__", firstgif)
       .replace("__description__", description).replace("__name-profile__", namePuPerfil).replace("__image-profile__", photoPuPerfil);
 
-      // $('#publish-testarea').val("");
-      // $('#inputQuery').val("");
-      // $('#imagen-gif').attr("scr","");
-
-
-
       referencia.set({
-        plantilla: finalTemplate,
+        plantilla: finalTemplate
       });
 
+      $('#publish-testarea').val("");
+      $('#inputQuery').val("");
+      $('#imagen-gif').attr("scr","");
 
 
 
@@ -143,7 +142,10 @@ function shareOnFacebook() {
   }, function(response){});
 }
   
+// $("#share").click(shareOnFacebook);
 
+
+})
 
 
 // post's variables
@@ -176,7 +178,7 @@ var templateCard = '<div class="card containerNewsfeed" id="cont-publish-card">'
 '</div>';
 
 
-// FRANCIA
+// FRANCIA ma
 
 
 
@@ -216,11 +218,7 @@ firebase.auth().onAuthStateChanged(function (user) {
 
   } else {
     console.log('no existe usuario');
-    // document.getElementById('user-menu').style.display = 'none';
-    $("#user-menu").css('display', 'none');
-    document.getElementById('profile').style.display = 'none'
-    $('#profile').css('display', 'none!important');
-    // $('#elem').css('height', '50px!important');
+    document.getElementById('user-menu').style.display = 'none';
   }
 });
 
