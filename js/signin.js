@@ -34,6 +34,7 @@ document.getElementById('logout').addEventListener('click', function(){
 
 firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
+
         document.getElementById('user-menu').style.display = 'block';
         document.getElementById('profile').style.display = 'block';
 
@@ -43,9 +44,6 @@ firebase.auth().onAuthStateChanged(function(user) {
 
         // $('#exampleModal').modal("hide");
         // $('#exampleModal').attr("style", "display: none");
-
-
-
         // $("#user-photo").attr("src", img);
         // $("#user-name").append(name);
 
@@ -54,9 +52,6 @@ firebase.auth().onAuthStateChanged(function(user) {
         // $("#email-profile").append(email);
         
         
-
-       
-    
     } else{
         $('#user-menu').style.display='none';
 
