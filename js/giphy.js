@@ -94,6 +94,7 @@ var templateCard = '<div class="card containerNewsfeed" id="cont-publish-card">'
 '</div>'+
 '<div class="row container-fluid">'+
 '<div class="col col-sm-5 offset-1">'+
+'<div id="contador"></div>'+
 '<a id="like" href="#"><i class="far fa-heart"></i></a>'+
 '<a id="dislike" href="#"><i class="far fa-frown"></i></a>'+
 '</div>'+
