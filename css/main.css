@@ -3,9 +3,12 @@ body{
     padding: 0;
 }
 
+/* CARDNEWSFEED */
+
 .containerNewsfeed {
     border: 1px solid black;
     margin: 2em;
+}
 
 /* HEADER */
 
