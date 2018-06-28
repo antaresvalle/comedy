@@ -32,11 +32,13 @@ $(document).ready(function () {
       var firstgif = gifs.data[0].images.fixed_width.url;
       console.log(firstgif);
       $("#image").html("<img src='" + firstgif + "'>");
-
+      
       getDataPost(firstgif);
+      $("#cont-publish-card").css("display","none");
 
     });
   }
+  
 
   $("#submitButton").on("click", function () {
     var query = $("#inputQuery").val();
@@ -46,22 +48,26 @@ $(document).ready(function () {
   function getDataPost(firstgif) {
 
     var description = $("#publish-testarea").val();
-    addPost(description);
+    addPost(description,firstgif);
     $("#modal-description").val("");
     $("#publish-gif").attr('src', "");
 
   }
 
-  function addPost(description, firstgif) {
+  function addPost(description,firstgif) {
     console.log(firstgif);
     var finalTemplate = "";
     finalTemplate = templateCard.replace("__image-post__", firstgif)
       .replace("__description__", description);
     $('#publish-card-cont-post').append(finalTemplate);
+    $("#cont-publish-card").css("display","block");
+
   }
 
+
+
   // post button
-  $("#post").click(getDataPost);
+  $("#post").click(addPost);
 
 
 })
@@ -69,7 +75,7 @@ $(document).ready(function () {
 
 
 // post's variables
-var templateCard = '<div class="card containerNewsfeed">'+
+var templateCard = '<div class="card containerNewsfeed" id="cont-publish-card">'+
 '<div class="row container-fluid">'+
 '<div id="user-photo" class="col col-3 offset-1 justify-content-sm-center">'+
 '<img id="user-photo" class="img-fluid img-thumbnail rounded-circle" src="./assets/images/Usuario.jpg" alt="Responsive image" style="width: 4rem;">'+
@@ -86,19 +92,16 @@ var templateCard = '<div class="card containerNewsfeed">'+
 '</div>'+
 '</div>'+
 '</div>'+
-
-
 '<div class="row container-fluid">'+
 '<div class="col col-sm-5 offset-1">'+
-'<a href="#"><i class="far fa-heart"></i></a>'+
-'<a href="#"><i class="far fa-frown"></i></a>'+
+'<div id="contador"></div>'+
+'<a id="like" href="#"><i class="far fa-heart"></i></a>'+
+'<a id="dislike" href="#"><i class="far fa-frown"></i></a>'+
 '</div>'+
 '<div class="col col-sm-6">'+
 '<button type="button" id="share" class="btn btn-primary offset-6">Share<i class="fab fa-facebook-f"></i></button>'+
 '</div>'+
 '</div>'+
-
-
 '</div>';
 
 // FRANCIA ma
@@ -121,10 +124,6 @@ $('#login').click(function () {
     firebase.auth()
         .signInWithPopup(provider)
         .then(function (result) {
-           
-
-
-
         })
 });
 
