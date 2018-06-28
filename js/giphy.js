@@ -163,7 +163,7 @@ var templateCard = '<div class="card containerNewsfeed" id="cont-publish-card">'
 '<div class="card" >'+
 '<img class="card-img-top" src="__image-post__" alt="Card image cap">'+
 '</div>'+
-'<p class="card-text">__description__</p>'+
+'<p class="card-text font-weight-bold">__description__</p>'+
 '</div>'+
 '<div class="row container-fluid">'+
 '<div class="col col-sm-5 offset-1">'+
@@ -218,11 +218,7 @@ firebase.auth().onAuthStateChanged(function (user) {
 
   } else {
     console.log('no existe usuario');
-    // document.getElementById('user-menu').style.display = 'none';
-    $("#user-menu").css('display', 'none');
-    document.getElementById('profile').style.display = 'none'
-    $('#profile').css('display', 'none!important');
-    // $('#elem').css('height', '50px!important');
+    document.getElementById('user-menu').style.display = 'none';
   }
 });
 
