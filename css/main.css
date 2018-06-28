@@ -29,3 +29,7 @@ i.fas.fa-cog {
 ul.navbar-nav.mr-auto {
     color: #a2a2a2;
 }
+
+#user-menu {
+    display:none;
+}
