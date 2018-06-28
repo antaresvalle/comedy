@@ -1,4 +1,5 @@
 var apikey = 'DapbcEr1KiQr2PsHsAR6NSrxYdHiRH3m';
+var count = 0;
 
 $(document).ready(function () {
 
@@ -28,7 +29,6 @@ $(document).ready(function () {
     // api from https://github.com/Giphy/GiphyAPI#search-endpoint 
 
     httpGetAsync('https://api.giphy.com/v1/gifs/search?' + params, function (data) {
-    debugger;  
     var gifs = JSON.parse(data);
       var firstgif = gifs.data[0].images.fixed_width.url;
       console.log(firstgif);
@@ -46,23 +46,16 @@ $(document).ready(function () {
     getGif(query);
   });
 
-  function getDataPost(firstgif) {
-
-    
-
-    //addPost(description,firstgif);
-    //$("#modal-description").val("");
-    //$("#publish-gif").attr('src', "");
-
-  }
 
   function addPost() {
     var description = $("#publish-testarea").val();
     var firstgif=$('#imagen-gif').attr("src");
+    var photoPuPerfil = $("#photo-profile").attr('src');
+    var namePuPerfil =  $("#name-profile").text();
     console.log(firstgif);
     var finalTemplate = "";
     finalTemplate = templateCard.replace("__image-post__", firstgif)
-      .replace("__description__", description);
+      .replace("__description__", description).replace("__name-profile__",namePuPerfil).replace("__image-profile__",photoPuPerfil);
 
       
     $('#publish-card-cont-post').append(finalTemplate);
@@ -72,9 +65,27 @@ $(document).ready(function () {
 
 
 
+  // ALEX
+
+ 
+
+$("#like").click(function() {
+    count++;
+    $('#contador').html("Puntos: "+ count)
+});
+
+$("#dislike").click(function() {
+    count--;        
+    $('#contador').html("Puntos: "+ count)
+});
+
+
   // post button
   $("#post").click(addPost);
 
+
+  
+$("#share").click (shareOnFacebook);
 
 })
 
@@ -83,11 +94,11 @@ $(document).ready(function () {
 // post's variables
 var templateCard = '<div class="card containerNewsfeed" id="cont-publish-card">'+
 '<div class="row container-fluid">'+
-'<div id="user-photo" class="col col-3 offset-1 justify-content-sm-center">'+
-'<img id="user-photo" class="img-fluid img-thumbnail rounded-circle" src="./assets/images/Usuario.jpg" alt="Responsive image" style="width: 4rem;">'+
+'<div class="col col-3 offset-1 justify-content-sm-center">'+
+'<img  class="img-fluid img-thumbnail rounded-circle" src="__image-profile__" alt="Responsive image" style="width: 4rem;">'+
 ' </div>'+
-'<div id="user-name" class="col col-8">'+
-'<h5 id="user-name">Name</h5>'+
+'<div  class="col col-8">'+
+'<h5>__name-profile__</h5>'+
 '</div>'+
 '</div>'+
 '<div class="container-fluid">'+
@@ -100,7 +111,7 @@ var templateCard = '<div class="card containerNewsfeed" id="cont-publish-card">'
 '</div>'+
 '<div class="row container-fluid">'+
 '<div class="col col-sm-5 offset-1">'+
-'<div id="contador"></div>'+
+'<div id="contador">0</div>'+
 '<a id="like" href="#"><i class="far fa-heart"></i></a>'+
 '<a id="dislike" href="#"><i class="far fa-frown"></i></a>'+
 '</div>'+
@@ -171,3 +182,19 @@ function shareFacebook(){
   
   console.log();
 }
+
+
+
+function shareOnFacebook() {
+  FB.ui({
+    method: 'share',
+    display: 'popup',
+    href: 'https://media3.giphy.com/media/mUrBX1TF0kCRi/200w.gif',
+  }, function(response){});
+}
+
+
+
+
+
+      
