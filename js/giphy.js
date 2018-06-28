@@ -28,13 +28,14 @@ $(document).ready(function () {
     // api from https://github.com/Giphy/GiphyAPI#search-endpoint 
 
     httpGetAsync('https://api.giphy.com/v1/gifs/search?' + params, function (data) {
-      var gifs = JSON.parse(data);
+    debugger;  
+    var gifs = JSON.parse(data);
       var firstgif = gifs.data[0].images.fixed_width.url;
       console.log(firstgif);
-      $("#image").html("<img src='" + firstgif + "'>");
+      $("#image").html("<img id='imagen-gif' src='" + firstgif + "'>");
       
-      getDataPost(firstgif);
-      $("#cont-publish-card").css("display","none");
+      //getDataPost(firstgif);
+      // $("#cont-publish-card").css("display","none");
 
     });
   }
@@ -47,20 +48,25 @@ $(document).ready(function () {
 
   function getDataPost(firstgif) {
 
-    var description = $("#publish-testarea").val();
-    addPost(description,firstgif);
-    $("#modal-description").val("");
-    $("#publish-gif").attr('src', "");
+    
+
+    //addPost(description,firstgif);
+    //$("#modal-description").val("");
+    //$("#publish-gif").attr('src', "");
 
   }
 
-  function addPost(description,firstgif) {
+  function addPost() {
+    var description = $("#publish-testarea").val();
+    var firstgif=$('#imagen-gif').attr("src");
     console.log(firstgif);
     var finalTemplate = "";
     finalTemplate = templateCard.replace("__image-post__", firstgif)
       .replace("__description__", description);
+
+      
     $('#publish-card-cont-post').append(finalTemplate);
-    $("#cont-publish-card").css("display","block");
+    // $("#cont-publish-card").css("display","block");
 
   }
 
