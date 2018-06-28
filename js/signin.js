@@ -26,49 +26,42 @@ $('#login').click(function () {
 
 
 
-
-
-
-
-
-
-
-
-
 document.getElementById('logout').addEventListener('click', function(){
-    console.log('click');
     firebase.auth().signOut();
+
+    // $('#photo-profile').style.display = 'none';
 });
 
 firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
 
-        console.log(user);
-        document.getElementById('user-menu').style.display='block';
-       
-        // no tocar
-        var email = user.email;
-        var name = user.displayName;
-        var img = user.photoURL;
+        document.getElementById('user-menu').style.display = 'block';
+        document.getElementById('profile').style.display = 'block';
 
-        $('#exampleModal').modal("hide");
-        $('#exampleModal').attr("style", "display: none");
+        // var email = user.email;
+        // var name = user.displayName;
+        // var img = user.photoURL;
 
-        console.log(email, name, img);
+        // $('#exampleModal').modal("hide");
+        // $('#exampleModal').attr("style", "display: none");
+        // $("#user-photo").attr("src", img);
+        // $("#user-name").append(name);
 
-
-        $("#user-photo").attr("src", img);
-        $("#user-name").append(name);
-
-        $("#photo-profile").attr("src", img);
-        $("#name-profile").append(name);
-        $("#email-profile").append(email);
-        // no tocar
-
-
+        // $("#photo-profile").attr("src", img);
+        // $("#name-profile").append(name);
+        // $("#email-profile").append(email);
+        
+        
     } else{
-        console.log('no existe usuario');
-        document.getElementById('user-menu').style.display='none';
+        $('#user-menu').style.display='none';
+
+       
+       
+        
+
+       
+
+
     }
 });
 

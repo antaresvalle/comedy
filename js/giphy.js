@@ -216,7 +216,11 @@ firebase.auth().onAuthStateChanged(function (user) {
 
   } else {
     console.log('no existe usuario');
-    document.getElementById('user-menu').style.display = 'none';
+    // document.getElementById('user-menu').style.display = 'none';
+    $("#user-menu").css('display', 'none');
+    document.getElementById('profile').style.display = 'none'
+    $('#profile').css('display', 'none!important');
+    // $('#elem').css('height', '50px!important');
   }
 });
 
