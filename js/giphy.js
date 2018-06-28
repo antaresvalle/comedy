@@ -81,22 +81,25 @@ $(document).ready(function () {
 
 
   var databaseService = firebase.database();
-  var referencia = databaseService.ref('testRef');
-  console.log(databaseService);
+  var referencia = databaseService.ref('CardPost');
 
   function addPost() {
     var description = $("#publish-testarea").val();
     var firstgif = $('#imagen-gif').attr("src");
     var photoPuPerfil = $("#photo-profile").attr('src');
     var namePuPerfil = $("#name-profile").text();
-    console.log(firstgif);
     var finalTemplate = "";
     finalTemplate = templateCard.replace("__image-post__", firstgif)
       .replace("__description__", description).replace("__name-profile__", namePuPerfil).replace("__image-profile__", photoPuPerfil);
 
+      // $('#publish-testarea').val("");
+      // $('#inputQuery').val("");
+      // $('#imagen-gif').attr("scr","");
+
+
+
       referencia.set({
-        campoTest: 'valor del test',
-        ahora: new Date().getTime()
+        plantilla: finalTemplate,
       });
 
 
@@ -140,10 +143,7 @@ function shareOnFacebook() {
   }, function(response){});
 }
   
-// $("#share").click(shareOnFacebook);
 
-
-})
 
 
 // post's variables
@@ -176,7 +176,7 @@ var templateCard = '<div class="card containerNewsfeed" id="cont-publish-card">'
 '</div>';
 
 
-// FRANCIA ma
+// FRANCIA
 
 
 
