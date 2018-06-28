@@ -1,6 +1,26 @@
 var apikey = 'DapbcEr1KiQr2PsHsAR6NSrxYdHiRH3m';
 var count = 0;
 
+// API facebook
+window.fbAsyncInit = function() {
+  FB.init({
+    appId            : '262766577827587',
+    autoLogAppEvents : true,
+    xfbml            : true,
+    version          : 'v3.0'
+  });
+};
+
+(function(d, s, id){
+   var js, fjs = d.getElementsByTagName(s)[0];
+   if (d.getElementById(id)) {return;}
+   js = d.createElement(s); js.id = id;
+   js.src = "https://connect.facebook.net/en_US/sdk.js";
+   fjs.parentNode.insertBefore(js, fjs);
+ }(document, 'script', 'facebook-jssdk'));
+
+
+
 $(document).ready(function () {
 
   function encodeQueryData(data) {
@@ -61,6 +81,8 @@ $(document).ready(function () {
     $('#publish-card-cont-post').append(finalTemplate);
     // $("#cont-publish-card").css("display","block");
 
+    $("#share").click(shareOnFacebook);
+
   }
 
 
@@ -83,9 +105,21 @@ $("#dislike").click(function() {
   // post button
   $("#post").click(addPost);
 
+// share facebook
 
+function shareOnFacebook() {
+  var imgGif = $('#imagen-gif').attr('src');
+  console.log(imgGif);
+  console.log('entra facebook');
+
+  FB.ui({
+    method: 'share',
+    display: 'popup',
+    href: imgGif,
+  }, function(response){});
+}
   
-$("#share").click (shareOnFacebook);
+// $("#share").click(shareOnFacebook);
 
 })
 
@@ -176,22 +210,7 @@ firebase.auth().onAuthStateChanged(function(user) {
     }
 });
 
-// share facebook
 
-function shareFacebook(){
-  
-  console.log();
-}
-
-
-
-function shareOnFacebook() {
-  FB.ui({
-    method: 'share',
-    display: 'popup',
-    href: 'https://media3.giphy.com/media/mUrBX1TF0kCRi/200w.gif',
-  }, function(response){});
-}
 
 
 
