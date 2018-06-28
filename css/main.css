@@ -3,10 +3,13 @@ body{
     padding: 0;
 }
 
+/* CARDNEWSFEED */
+
 .containerNewsfeed {
     border: 1px solid black;
     margin: 2em;
 }
+
 /* HEADER */
 
 nav.navbar.navbar-expand-lg {
