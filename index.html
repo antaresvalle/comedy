@@ -22,28 +22,25 @@
             <a class="navbar-brand" href="#">
                 <img src="assets/images/comedylog.png" width="120" height="50" class="d-inline-block align-top" alt="">
             </a>
-            <button type="button" class="btn btn-outline-light">Log-in</button>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText"
-                aria-expanded="false" aria-label="Toggle navigation">
-                <i class="fas fa-cog"></i>
+
+            <button type="button" class="btn btn-outline-light" id="login">Log-in</button>
+            <button id= "user-menu" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+              <i class="fas fa-cog"></i>
             </button>
             <div class="collapse navbar-collapse" id="navbarText">
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item">
-                        <div class="row">
-                            <div class="col col-3">
-                                <span>Imagen</span>
-                            </div>
-                            <div class="col col-9">
-                                <span>Name</span>
-                            </div>
-                        </div>
-                        <p>email</p>
-                    </li>
-                    <li class="nav-item">
-                        <button type="button" class="btn btn-outline-light">Log-Out</button>
-                    </li>
-                </ul>
+              <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <div class="row">
+                        <div class="col col-3"><span>Imagen</span></div>
+                        <div class="col col-9"><span>Name</span></div>
+                    </div>
+                    <p>email</p>
+                </li>
+                <li class="nav-item">
+                    <button type="button" id="logout" class="btn btn-outline-light">Log-Out</button>
+                </li>
+              </ul>
+
             </div>
         </nav>
     </header>
@@ -78,34 +75,62 @@
 
     </navbar>
 
-    <!-- MODALES -->
-    <!-- gif publish modal -->
-    <div class="modal" tabindex="-1" role="dialog" id="publish-modal">
+   <!-- MODALES -->
+  <!-- gif publish modal -->
+   <div class="modal" tabindex="-1" role="dialog" id="publish-modal">
+       <div class="modal-dialog" role="document">
+           <div class="modal-content">
+               <div class="modal-header">
+                   <h5 class="modal-title">Make me laught GIF...</h5>
+                   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                       <span aria-hidden="true">&times;</span>
+                   </button>
+               </div>
+               <div class="modal-body">
+                       <textarea class="form-control" id="exampleFormControlTextarea1" rows="2"></textarea>
+                       <h3>Search for gifs</h3>
+                       <input type="text" id="inputQuery"><input type="button" id="submitButton" value="Search">
+                       <div id="image"></div>
+               </div>
+               <div class="modal-footer">
+                   <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                   <button type="button" class="btn btn-primary">Save changes</button>
+               </div>
+           </div>
+       </div>
+   </div>
+   <!-- Modal Sign In -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Make me laught GIF...</h5>
+                  <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
-                    <textarea class="form-control" id="publish-testarea" rows="2"></textarea>
-                    <h3>Search for gifs</h3>
-                    <input type="text" id="inputQuery">
-                    <input type="button" id="submitButton" value="Search">
-                    <div id="image">
-                       
+
+                    <div class="row">
+                    <p class="col-sm-12">Ingresa con Google</p>
+                    <button type="button" class="btn btn-dark col-sm-2" id="login"><i class="fab fa-google"></i>Google</button>
+                    <div id="root"></div>
+
                     </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary" id="post">Post</button>
+
+                    <button type="button" class="btn btn-primary">Ingresar</button>
+
                 </div>
             </div>
         </div>
     </div>
-    <!-- SCRIPTS -->
+
+   <!-- Cierre modal Sign in -->
+   <!-- SCRIPTS -->
+
 
     <!-- jQuery (nedded for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
@@ -116,6 +141,7 @@
     <!-- API Giphy -->
     <script type="text/javascript" src="js/giphy.js"></script>
     <!-- js -->
+    <script src="js/signin.js"></script>
     <script type="text/javascript" src="js/app.js"></script>
 
 
