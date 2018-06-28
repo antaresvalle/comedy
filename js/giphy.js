@@ -1,4 +1,5 @@
 var apikey = 'DapbcEr1KiQr2PsHsAR6NSrxYdHiRH3m';
+var count = 0;
 
 $(document).ready(function () {
 
@@ -28,54 +29,76 @@ $(document).ready(function () {
     // api from https://github.com/Giphy/GiphyAPI#search-endpoint 
 
     httpGetAsync('https://api.giphy.com/v1/gifs/search?' + params, function (data) {
-      var gifs = JSON.parse(data);
+    var gifs = JSON.parse(data);
       var firstgif = gifs.data[0].images.fixed_width.url;
       console.log(firstgif);
-      $("#image").html("<img src='" + firstgif + "'>");
-
-      getDataPost(firstgif);
+      $("#image").html("<img id='imagen-gif' src='" + firstgif + "'>");
+      
+      //getDataPost(firstgif);
+      // $("#cont-publish-card").css("display","none");
 
     });
   }
+  
 
   $("#submitButton").on("click", function () {
     var query = $("#inputQuery").val();
     getGif(query);
   });
 
-  function getDataPost(firstgif) {
 
+  function addPost() {
     var description = $("#publish-testarea").val();
-    addPost(description);
-    $("#modal-description").val("");
-    $("#publish-gif").attr('src', "");
-
-  }
-
-  function addPost(description, firstgif) {
+    var firstgif=$('#imagen-gif').attr("src");
+    var photoPuPerfil = $("#photo-profile").attr('src');
+    var namePuPerfil =  $("#name-profile").text();
     console.log(firstgif);
     var finalTemplate = "";
     finalTemplate = templateCard.replace("__image-post__", firstgif)
-      .replace("__description__", description);
+      .replace("__description__", description).replace("__name-profile__",namePuPerfil).replace("__image-profile__",photoPuPerfil);
+
+      
     $('#publish-card-cont-post').append(finalTemplate);
+    // $("#cont-publish-card").css("display","block");
+
   }
 
-  // post button
-  $("#post").click(getDataPost);
 
+
+  // ALEX
+
+ 
+
+$("#like").click(function() {
+    count++;
+    $('#contador').html("Puntos: "+ count)
+});
+
+$("#dislike").click(function() {
+    count--;        
+    $('#contador').html("Puntos: "+ count)
+});
+
+
+  // post button
+  $("#post").click(addPost);
+
+
+  
+$("#share").click (shareOnFacebook);
 
 })
 
 
 
 // post's variables
-var templateCard = '<div class="card containerNewsfeed">'+
+var templateCard = '<div class="card containerNewsfeed" id="cont-publish-card">'+
 '<div class="row container-fluid">'+
-'<div id="user-photo" class="col col-3 offset-1 justify-content-sm-center">'+
-'<img id="user-photo" class="img-fluid img-thumbnail rounded-circle" src="./assets/images/Usuario.jpg" alt="Responsive image" style="width: 4rem;">'+
+'<div class="col col-3 offset-1 justify-content-sm-center">'+
+'<img  class="img-fluid img-thumbnail rounded-circle" src="__image-profile__" alt="Responsive image" style="width: 4rem;">'+
 ' </div>'+
-'<div id="user-name" class="col col-8">'+
-'<h5 id="user-name">Name</h5>'+
+'<div  class="col col-8">'+
+'<h5>__name-profile__</h5>'+
 '</div>'+
 '</div>'+
 '<div class="container-fluid">'+
@@ -86,19 +109,16 @@ var templateCard = '<div class="card containerNewsfeed">'+
 '</div>'+
 '</div>'+
 '</div>'+
-
-
 '<div class="row container-fluid">'+
 '<div class="col col-sm-5 offset-1">'+
-'<a href="#"><i class="far fa-heart"></i></a>'+
-'<a href="#"><i class="far fa-frown"></i></a>'+
+'<div id="contador">0</div>'+
+'<a id="like" href="#"><i class="far fa-heart"></i></a>'+
+'<a id="dislike" href="#"><i class="far fa-frown"></i></a>'+
 '</div>'+
 '<div class="col col-sm-6">'+
-'<button type="button" class="btn btn-primary offset-6">Share<i class="fab fa-facebook-f"></i></button>'+
+'<button type="button" id="share" class="btn btn-primary offset-6">Share<i class="fab fa-facebook-f"></i></button>'+
 '</div>'+
 '</div>'+
-
-
 '</div>';
 
 // FRANCIA ma
@@ -121,10 +141,6 @@ $('#login').click(function () {
     firebase.auth()
         .signInWithPopup(provider)
         .then(function (result) {
-           
-
-
-
         })
 });
 
@@ -159,3 +175,26 @@ firebase.auth().onAuthStateChanged(function(user) {
         document.getElementById('user-menu').style.display='none';
     }
 });
+
+// share facebook
+
+function shareFacebook(){
+  
+  console.log();
+}
+
+
+
+function shareOnFacebook() {
+  FB.ui({
+    method: 'share',
+    display: 'popup',
+    href: 'https://media3.giphy.com/media/mUrBX1TF0kCRi/200w.gif',
+  }, function(response){});
+}
+
+
+
+
+
+      
