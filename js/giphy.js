@@ -94,7 +94,7 @@ var templateCard = '<div class="card containerNewsfeed">'+
 '<a href="#"><i class="far fa-frown"></i></a>'+
 '</div>'+
 '<div class="col col-sm-6">'+
-'<button type="button" class="btn btn-primary offset-6">Share<i class="fab fa-facebook-f"></i></button>'+
+'<button type="button" id="share" class="btn btn-primary offset-6">Share<i class="fab fa-facebook-f"></i></button>'+
 '</div>'+
 '</div>'+
 
@@ -159,3 +159,10 @@ firebase.auth().onAuthStateChanged(function(user) {
         document.getElementById('user-menu').style.display='none';
     }
 });
+
+// share facebook
+
+function shareFacebook(){
+  
+  console.log();
+}
