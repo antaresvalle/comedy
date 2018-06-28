@@ -38,13 +38,11 @@ ul.navbar-nav.mr-auto {
 
 /* Navbar Color */
 
-.nav-tabs {
+ul#tabFormats {
     background-color: black;
 }
 
-.nav-link {
-    /* padding: .5rem 2.56rem; */
-}
+
 
 .white-text {
     color: white;
@@ -52,4 +50,27 @@ ul.navbar-nav.mr-auto {
 
 i.fas {
     margin-left: 0.2rem;
+} 
+
+#photo-profile {
+    display: block; 
+    margin-top: 25px;
+}
+
+@media (min-width: 320px){
+    .nav-link {
+        padding: .5rem 1.41rem;
+    }
+}
+
+@media (min-width: 370px){
+    .nav-link {
+        padding: .5rem 1.986rem;
+    }
+}
+
+@media (min-width: 425px){
+    .nav-link {
+        padding: .5rem 2.506rem;
+    }
 }
