@@ -76,3 +76,7 @@ i.fas {
     }
 }
 
+
+.inlineblockcard{
+    display: inline-flex;
+}

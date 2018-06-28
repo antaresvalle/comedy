@@ -152,8 +152,8 @@ function shareOnFacebook() {
 
 
 var templateCard = '<div class="card containerNewsfeed" id="cont-publish-card">' +
-  '<div class="row container-fluid">' +
-  '<div class="col col-3 offset-1 justify-content-sm-center">' +
+  '<div class="container-fluid p-0 inlineblockcard">' +
+  '<div class="col col-3 offset-1 justify-content-sm-center p-0">' +
   '<img  class="img-fluid img-thumbnail rounded-circle" src="__image-profile__" alt="Responsive image" style="width: 4rem;">' +
   ' </div>' +
   '<div  class="col col-8">' +
@@ -162,7 +162,7 @@ var templateCard = '<div class="card containerNewsfeed" id="cont-publish-card">'
   '</div>' +
   '<div class="container-fluid">' +
   '<div class="">' +
-  '<img class="card-img-top" src="__image-post__" class="img-responsive espacio-imagen center-block" style="width: 22rem;>' +
+  '<img class="card-img-top" src="__image-post__" class="img-responsive espacio-imagen center-block" >' +
   '<div class="card-body">' +
   '<p class="card-text text-justify"">__description__</p>' +
   '</div>' +
@@ -170,7 +170,7 @@ var templateCard = '<div class="card containerNewsfeed" id="cont-publish-card">'
   '<div class="row container-fluid">' +
   '<div id="contador" class="row offset-1">Puntos: </div>' +
   '</div>' +
-  '<div class="row container-fluid">' +
+  '<div class="row container-fluid mt-1 mb-1">' +
   '<div class="col col-1 offset-1">' +
   '<span id="like"><img src="assets/images/pac-man-512x512.png" style="width: 1.2rem;"></span>' +
   '</div>' +
