@@ -159,3 +159,5 @@ firebase.auth().onAuthStateChanged(function(user) {
         document.getElementById('user-menu').style.display='none';
     }
 });
+
+// share facebook
