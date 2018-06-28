@@ -35,3 +35,21 @@ ul.navbar-nav.mr-auto {
 #user-menu {
     display:none;
 }
+
+/* Navbar Color */
+
+.nav-tabs {
+    background-color: black;
+}
+
+.nav-link {
+    /* padding: .5rem 2.56rem; */
+}
+
+.white-text {
+    color: white;
+}
+
+i.fas {
+    margin-left: 0.2rem;
+}
