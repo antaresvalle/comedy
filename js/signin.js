@@ -10,14 +10,19 @@ var config = {
 };
 firebase.initializeApp(config);
 
+
+var email;
+var name;
+var img;
+
 // Se obtiene la data del usuario al aceptar
 $('#login').click(function () {
     firebase.auth()
         .signInWithPopup(provider)
         .then(function (result) {
-            var email = result.user.email;
-            var name = result.user.displayName;
-            var img = result.user.photoURL;
+            email = result.user.email;
+            name = result.user.displayName;
+            img = result.user.photoURL;
 
             $('#exampleModal').modal("hide");
             $('#exampleModal').attr("style", "display: none");
@@ -27,5 +32,8 @@ $('#login').click(function () {
 
         })
 });
+
+
+
 
 
