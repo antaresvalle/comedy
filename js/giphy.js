@@ -1,5 +1,5 @@
 var apikey = 'DapbcEr1KiQr2PsHsAR6NSrxYdHiRH3m';
-var count = 0;
+
 
 $(document).ready(function () {
 
@@ -61,18 +61,23 @@ $(document).ready(function () {
     $('#publish-card-cont-post').append(finalTemplate);
     // $("#cont-publish-card").css("display","block");
 
-    $("#like").click(function () {
+
+    /* ALEX*/
+
+  var count = 0;
+
+  $("#like").click(function() {
       count++;
-      $('#contador').html("Puntos: " + count)
-    });
+      $('#contador').html("Puntos: "+ count)
+  });
   
-    $("#dislike").click(function () {
-      count--;
-      $('#contador').html("Puntos: " + count)
-    });
+  $("#dislike").click(function() {
+      count--;        
+      $('#contador').html("Puntos: "+ count)
+  }); 
+
 
   }
-
 
    // post button
   $("#post").click(addPost);
@@ -84,36 +89,37 @@ $(document).ready(function () {
 })
 
 
-
 // post's variables
-var templateCard = '<div class="card containerNewsfeed" id="cont-publish-card">' +
-  '<div class="row container-fluid">' +
-  '<div class="col col-3 offset-1 justify-content-sm-center">' +
-  '<img  class="img-fluid img-thumbnail rounded-circle" src="__image-profile__" alt="Responsive image" style="width: 4rem;">' +
-  ' </div>' +
-  '<div  class="col col-8">' +
-  '<h5>__name-profile__</h5>' +
-  '</div>' +
-  '</div>' +
-  '<div class="container-fluid">' +
-  '<div class="card" >' +
-  '<img class="card-img-top" src="__image-post__" alt="Card image cap">' +
-  '<div class="card-body">' +
-  '<p class="card-text">__description__</p>' +
-  '</div>' +
-  '</div>' +
-  '</div>' +
-  '<div class="row container-fluid">' +
-  '<div class="col col-sm-5 offset-1">' +
-  '<div id="contador">0</div>' +
-  '<a id="like" href="#"><i class="far fa-heart"></i></a>' +
-  '<a id="dislike" href="#"><i class="far fa-frown"></i></a>' +
-  '</div>' +
-  '<div class="col col-sm-6">' +
-  '<button type="button" id="share" class="btn btn-primary offset-6">Share<i class="fab fa-facebook-f"></i></button>' +
-  '</div>' +
-  '</div>' +
-  '</div>';
+
+var templateCard = '<div class="card containerNewsfeed" id="cont-publish-card">'+
+'<div class="row container-fluid">'+
+'<div class="col col-3 offset-1 justify-content-sm-center">'+
+'<img  class="img-fluid img-thumbnail rounded-circle" src="__image-profile__" alt="Responsive image" style="width: 4rem;">'+
+' </div>'+
+'<div  class="col col-8">'+
+'<h5>__name-profile__</h5>'+
+'</div>'+
+'</div>'+
+'<div class="container-fluid">'+
+'<div class="card" >'+
+'<img class="card-img-top" src="__image-post__" alt="Card image cap">'+
+'<div class="card-body">'+
+'<p class="card-text">__description__</p>'+
+'</div>'+
+'</div>'+
+'</div>'+
+'<div class="row container-fluid">'+
+'<div class="col col-sm-5 offset-1">'+
+'<div id="contador">0</div>'+
+'<span id="like"><i class="far fa-heart"></i></span>'+
+'<span id="dislike"><i class="far fa-frown"></i></span>'+
+'</div>'+
+'<div class="col col-sm-6">'+
+'<button type="button" id="share" class="btn btn-primary offset-6">Share<i class="fab fa-facebook-f"></i></button>'+
+'</div>'+
+'</div>'+
+'</div>';
+
 
 // FRANCIA ma
 var provider = new firebase.auth.GoogleAuthProvider();
