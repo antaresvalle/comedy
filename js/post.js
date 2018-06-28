@@ -41,9 +41,10 @@ function getDataPost() {
     var description = $("#publish-testarea").val();
     var srcPost = $("#publish-gif").attr('src');
     addPost(description, srcPost);
+    console.log(srcPost);
+    // $("#modal-description").val("");
+    // $("#publish-gif").attr('src', "");
 
-    $("#modal-description").val("");
-    $("#publish-gif").attr('src', "");
 }
 
 function addPost(description, srcPost) {
