@@ -72,10 +72,10 @@ $(document).ready(function () {
 var templateCard = '<div class="card containerNewsfeed">'+
 '<div class="row container-fluid">'+
 '<div id="user-photo" class="col col-3 offset-1 justify-content-sm-center">'+
-'<img class="img-fluid img-thumbnail rounded-circle" src="./assets/images/Usuario.jpg" alt="Responsive image" style="width: 4rem;">'+
+'<img id="user-photo" class="img-fluid img-thumbnail rounded-circle" src="./assets/images/Usuario.jpg" alt="Responsive image" style="width: 4rem;">'+
 ' </div>'+
 '<div id="user-name" class="col col-8">'+
-'<h5>Name</h5>'+
+'<h5 id="user-name">Name</h5>'+
 '</div>'+
 '</div>'+
 '<div class="container-fluid">'+
@@ -86,20 +86,76 @@ var templateCard = '<div class="card containerNewsfeed">'+
 '</div>'+
 '</div>'+
 '</div>'+
+
+
 '<div class="row container-fluid">'+
 '<div class="col col-sm-5 offset-1">'+
-'<a href="">'+
-'<img src="assets/images/pac-man.png" alt="">'+
-' </a>'+
-'<a href="">'+
-'<img src="assets/images/ghost.png" alt="">'+
-'</a>'+
+'<a href="#"><i class="far fa-heart"></i></a>'+
+'<a href="#"><i class="far fa-frown"></i></a>'+
 '</div>'+
 '<div class="col col-sm-6">'+
-'<button type="button" class="btn btn-secondary col col-sm-3 offset-sm-9">Share<i class="fab fa-facebook-f"></i></button>'+
+'<button type="button" class="btn btn-primary offset-6">Share<i class="fab fa-facebook-f"></i></button>'+
 '</div>'+
 '</div>'+
+
+
 '</div>';
 
+// FRANCIA ma
+var provider = new firebase.auth.GoogleAuthProvider();
+
+var config = {
+    apiKey: "AIzaSyDFuzbP725qXoImrSmo6nov90OiPBtHnmw",
+    authDomain: "comedy-app.firebaseapp.com",
+    databaseURL: "https://comedy-app.firebaseio.com",
+    projectId: "comedy-app",
+    storageBucket: "comedy-app.appspot.com",
+    messagingSenderId: "710197328215"
+};
+firebase.initializeApp(config);
 
 
+
+// Se obtiene la data del usuario al aceptar
+$('#login').click(function () {
+    firebase.auth()
+        .signInWithPopup(provider)
+        .then(function (result) {
+           
+
+
+
+        })
+});
+
+
+document.getElementById('logout').addEventListener('click', function(){
+    console.log('click');
+    firebase.auth().signOut();
+});
+
+firebase.auth().onAuthStateChanged(function(user) {
+    if (user) {
+        document.getElementById('user-menu').style.display='block';
+        var email = user.email;
+        var name = user.displayName;
+        var img = user.photoURL;
+
+        $('#exampleModal').modal("hide");
+        $('#exampleModal').attr("style", "display: none");
+
+        console.log(email, name, img);
+
+
+        $("#user-photo").attr("src", img);
+        $("#user-name").append(name);
+
+        $("#photo-profile").attr("src", img);
+        $("#name-profile").append(name);
+        $("#email-profile").append(email);
+    
+    } else{
+        console.log('no existe usuario');
+        document.getElementById('user-menu').style.display='none';
+    }
+});
