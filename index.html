@@ -22,7 +22,6 @@
             <a class="navbar-brand" href="#">
                 <img src="assets/images/comedylog.png" width="120" height="50" class="d-inline-block align-top" alt="">
             </a>
-
             <button type="button" class="btn btn-outline-light" id="login">Log-in</button>
             <button id= "user-menu" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
               <i class="fas fa-cog"></i>
@@ -31,10 +30,13 @@
               <div class="navbar-nav mr-auto">
                 <div class="nav-item" id="profile">
                     <div class="row">
-                        <div class="col col-3"><img id="photo-profile" class="img-fluid img-thumbnail rounded-circle" src="" alt=""></div>
-                        <div class="col col-9  text-light"><span id="name-profile"></span></div>
+                        <div class="col col-4 offset-4"><img id="photo-profile" class="img-fluid img-thumbnail rounded-circle" src="" alt=""></div>
                     </div>
-                    <p class="email  text-light" id="email-profile"></p>
+                     <div class="col col-7 offset-3  text-light">
+                        <span id="name-profile"></span>
+                        <p class="email  text-light" id="email-profile"></p>
+                    </div>
+                    
                 </div>
                 <div class="nav-item">
                     <button type="button" id="logout" class="btn btn-outline-light">Log-Out</button>

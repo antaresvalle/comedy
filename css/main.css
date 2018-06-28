@@ -37,5 +37,6 @@ ul.navbar-nav.mr-auto {
 }
 
 #photo-profile {
-    display: block;
+    display: block; 
+    margin-top: 25px;
 }
