@@ -3,13 +3,15 @@ body{
     padding: 0;
 }
 
+
 /* .containerNewsfeed {
     border: 1px solid black;
     margin: 2em; */
 
+
 /* HEADER */
 
-nav {
+nav.navbar.navbar-expand-lg {
     background-color: black;
 }
 
@@ -28,4 +30,8 @@ i.fas.fa-cog {
 
 ul.navbar-nav.mr-auto {
     color: #a2a2a2;
+}
+
+#user-menu {
+    display:none;
 }
