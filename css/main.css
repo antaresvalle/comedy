@@ -9,7 +9,7 @@ body{
 }
 /* HEADER */
 
-nav {
+nav.navbar.navbar-expand-lg {
     background-color: black;
 }
 
