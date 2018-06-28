@@ -28,4 +28,19 @@ $('#login').click(function () {
         })
 });
 
+document.getElementById('logout').addEventListener('click', function(){
+    console.log('click');
+    firebase.auth().signOut();
+});
+
+firebase.auth().onAuthStateChanged(function(user) {
+    if (user) {
+        document.getElementById('user-menu').style.display='block';
+    // User is signed in.
+    } else{
+        console.log('no existe usuario');
+        document.getElementById('user-menu').style.display='none';
+    }
+});
+
 
